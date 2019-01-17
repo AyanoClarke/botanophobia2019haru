@@ -12,7 +12,7 @@
 \RequirePackage{tikz}
 \usetikzlibrary{positioning}
 
-% 我们需要中文
+% 中文
 \RequirePackage{xeCJK}
 \setCJKmainfont[
 	UprightFont = * Light,
@@ -69,14 +69,6 @@
 \DeclareOptionBeamer{twoslidesonhandout}[true]{\setcounter{slidesperhandout}{2}}
 \DeclareOptionBeamer{fourslidesonhandout}[true]{\setcounter{slidesperhandout}{4}}
 
-% USING SHORT TITLE
-% We provide a beamer option for the decision, if the short
-% title shoud be used in the slide header. The value for the
-% counter is used later for the specification of the header
-\newcounter{useshorttitle}
-\setcounter{useshorttitle}{0}
-\DeclareOptionBeamer{shortTitleInHeader}[true]{\setcounter{useshorttitle}{1}}
-
 
 % COLOR DEFINITION
 % defining the USTC-colors
@@ -96,12 +88,6 @@
 \definecolor{naturegray}{cmyk}{0.8,0.8,0,0.62}
 \definecolor{naturegreen}{cmyk}{0.5,0,0.83,0.53}
 \definecolor{naturepurple}{cmyk}{0.67,1,0,0.39}
-
-\definecolor{upblightgray}{RGB}{199,201,199}
-\definecolor{upbgreen}{RGB}{164,196,36}
-\definecolor{upbcyan}{RGB}{24,176,226}
-\definecolor{upborange}{RGB}{242,149,18}
-\definecolor{upbcassis}{RGB}{169,57,131}
 
 
 % We declare beamer options for using the color theme of the presentation.
@@ -123,7 +109,7 @@
 
 
 % DEFAULT TABLE LAYOUT
-\arrayrulecolor{ustcgray}
+\arrayrulecolor{\titlecolor}
 \setlength{\arrayrulewidth}{1pt}
 
 
@@ -285,17 +271,16 @@
 
 		% display the frametitle taken into account the choosen size
 		\ifnum\thesmallft>0\relax%
-			\node[anchor=south west, inner sep = 0mm, align = flush left,
+			\node[anchor=west, inner sep = 0mm, align = flush left, 
 				color=\titlecolor] at (0,0)
-				{\normalsize \textbf{\insertframetitle}}; 
+				{\large \textbf{\insertframetitle}}; 
 		\else
-			\node[anchor=west,inner sep = 0mm, align = flush left,
+			\node[anchor=west,inner sep = 0mm, align = flush left, 
 				text width = .8\textwidth, color=\titlecolor] at (0,0)
 				{\LARGE \textbf{\insertframetitle}}; 
 		\fi
 	\end{tikzpicture}
 }
-
 
 % TEMPATE FOR THE HEADER 
 \setbeamertemplate{headline}
@@ -327,8 +312,8 @@
 % TEMPLATE FOR THE FOOTER
 \setbeamertemplate{footline}
 {
-	\begin{tikzpicture}
-		\coordinate (bottomleft) at (\the\paperwidth-8mm,.25);
+	\begin{tikzpicture}[overlay]
+		\coordinate (bottomleft) at (\the\paperwidth-3mm,.25);
   		\useasboundingbox (0,0) rectangle (\the\paperwidth-7mm,.01);
 
   		% draw the network
@@ -347,38 +332,6 @@
   			color = ustcblue] at (bottomleft) {\footnotesize \insertframenumber};
   	\end{tikzpicture}
 }
-
-
-% % COLORED TABLES
-% % We provide some new column types for colored tables which are based on
-% % the UPB-Colors
-
-% % colored columns with different alignments, color and width can be choosen
-% \newcolumntype{\L}[2]{>{\raggedright\arraybackslash\columncolor{#2}\color{white}}p{#1}}
-% \newcolumntype{\C}[2]{>{\centering\arraybackslash\columncolor{#2}\color{white}}p{#1}}
-% \newcolumntype{\R}[2]{>{\raggedleft\arraybackslash\columncolor{#2}\color{white}}p{#1}}
-
-
-% % lighter colored columns with different alignments, color and width can be choosen
-% \newcolumntype{\lL}[2]{>{\raggedright\arraybackslash\columncolor{#2!45!white}\color{white}}p{#1}}
-% \newcolumntype{\lC}[2]{>{\centering\arraybackslash\columncolor{#2!45!white}\color{white}}p{#1}}
-% \newcolumntype{\lR}[2]{>{\raggedleft\arraybackslash\columncolor{#2!45!white}\color{white}}p{#1}}
-
-
-% % colored columns using the theme color of the presentation
-% \newcolumntype{\thmL}[1]{\L{#1}{\titlecolor}}
-% \newcolumntype{\thmC}[1]{\C{#1}{\titlecolor}}
-% \newcolumntype{\thmR}[1]{\R{#1}{\titlecolor}}
-
-% \newcolumntype{\lthmL}[1]{\lL{#1}{\titlecolor}}
-% \newcolumntype{\lthmC}[1]{\lC{#1}{\titlecolor}}
-% \newcolumntype{\lthmR}[1]{\lR{#1}{\titlecolor}}
-
-% % commands for changing the line color
-% \newcommand{\whiterules}{\arrayrulecolor{white}}
-% \newcommand{\normalrules}{\arrayrulecolor{ustcgray}}
-
-
 
 % defining the handout style 
 \mode<handout>{

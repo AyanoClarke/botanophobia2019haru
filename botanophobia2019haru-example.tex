@@ -2,34 +2,21 @@
 % ABOUT: This is a very elementary example for the use of the beamer class
 % inherited from upb2018.
 
-\documentclass[
-	% uncomment, if you want to print your presentation as a handout
-	% with possibly more than one slide per a4page. You can choose
-	% the number of slides printed on one handout-page below in the
-	% options of \usetheme.
-		%handout
-	] {beamer}
+\documentclass[handout]{beamer}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 
 \usetheme[
-	% choose the color theme of the presentation 
-		blue
-		%red
-		%green
+		blue 	% USTC blue
+		%red	% Nature red
+		%green	% Nature Plants green
 	,
-	% uncomment, if you want to use the optional short title instead
-	% of the full title in the header. Note that the short title
-	% is only displayed in one line.
-		shortTitleInHeader
-	,
-		%oneslideonhandout			% one slide per page (landscape)
-		%twoslidesonhandout 	% two slides per page
-		fourslidesonhandout			% four slides per page (landscape) [default]
+		%oneslideonhandout		% one slide per page (landscape)
+		%twoslidesonhandout		% two slides per page
+		fourslidesonhandout		% four slides per page (landscape) [default]
 ]{bp2019haru}
-
 
 % IMAGES
 % chooose the cropped background image on the titlepage
@@ -38,10 +25,10 @@
 \renewcommand{\framelogo}{logo/ustcshortlogo.png}
 
 % GENERAL INFORMATIONS
-\title[Gene Co-expression Network]{基因共表达网络在水稻\\育种中应用}
-\subtitle{AtGGM2014}
-\institute{School of Life Science, USTC}
-\author{Student T}
+\title[Gene Co-expression Network]{Botanophobia 2019 春\\这就是标题}
+\subtitle{这是副标题}
+\institute{生命科学学院}
+\author{Student}
 \date{Jan. 11st, 2019}
 
 \begin{document}
@@ -51,147 +38,77 @@
 	\titlepage
 \end{frame}
 
-\begin{frame}{General Settings 1}
-	The beamer theme \colemph{upb2018} can be used with the command 
-	\begin{center}
-		\texttt{$\backslash$usetheme[<colortheme>]\{upb2018\}}
-	\end{center}
-
-	For the option \texttt{<colortheme>} you can choose out of
-	\texttt{cyan}, \texttt{orange}, \texttt{green}, \texttt{cassis}, \texttt{blue} oder
-	\texttt{red}.
-
-	In addition you can use the option \texttt{shortTitleInHeader} to
-	use the optional short title instead of the full title in the header. Note that
-	the short title is only displayed in one line.
+\begin{frame}{Some TFs in \emph{Arabidopsis} have been identified}
+	\begin{tabular}{lllll}
+		\hline			
+		AGI & TF & Regulate RSA & Study \\
+		\hline
+		AT2G14210 & ANR1 & yes & Zhang \& Forde, Science, 1998  \\
+		AT5G67420 & LBD37 & - & Rubin et al, Plant Cell, 2009 \\
+		AT3G49940 & LBD38 & - & Rubin et al, Plant Cell, 2009 \\
+		AT4G37540 & LBD39 & - & Rubin et al, Plant Cell, 2009\\
+		AT2G42200 & SPL9 & - & Krouk et al, Genome Biology, 2010 \\
+		AT5G37020 & ARF8 & yes & Gifford et al, PNAS, 2008  \\
+		AT4G24020 & NLP7 & yes & Castaings et al, The Plant Journal, 2009 \\
+		AT5G49450 & BZIP1 & - & Obertello et al, BMC Systems Biology, 2010 \\
+		AT1G64530 & NLP6 & - & Konishi \& Yanagisawa, Nature communications, 2014 \\
+		AT5G07680 & NAC4 & yes & Vidal 2011 et al\\
+		\hline  
+	  \end{tabular}
 \end{frame}
 
-
-
-\begin{frame}{General Settings 2}
-	You can change the cropped image on the title page using
-
-	\begin{center}
-		\texttt{$\backslash$renewcommand\{$\backslash$titleimage\}\{<path>\}}.
-	\end{center}
-
-	Note that your image will be cropped automatically.
-
+\begin{frame}{CO\textsubscript{2} Regulation of Stomatal}
+	Ball-Berry-Leuning model
+	$$g_{s} = g_{0} + \frac{_{1}A_{n}}{(c_{s}-\Gamma)(1+\frac{D_{s}}{D_{0}})}$$
+	CO\textsubscript{2} signaling pathway in stomatal movement
 	\vfill
+	\begin{tikzpicture}
+		\tikzset{>=latex}
+		\node[inner sep = 0mm, align = flush left] (highCO2) at (0,0){High CO\textsubscript{2}};
+		\node[inner sep = 0mm, align = flush left] (CA) at (3,0) {CA1/CA4};
+		\node[inner sep = 0mm, align = flush left] (HCO3) at (5.5,0) {HCO\textsubscript{3}\textsuperscript{-}/RHC1}; 
+		\node[inner sep = 0mm, align = flush left] (HT1) at (8,0) {HT1}; 
+		\node[inner sep = 0mm, align = flush left] (ABA) at (3,-1) {ABA};
+		\node[inner sep = 0mm, align = flush left] (1) at (4,-1) {};
+		\node[inner sep = 0mm, align = flush left] (2) at (5,-1) {};
+		\node[inner sep = 0mm, align = flush left] (3) at (6,-1) {};
+		\node[inner sep = 0mm, align = flush left] (4) at (7,-0.3) {};	
+		\node[inner sep = 0mm, align = flush left] (OST1) at (7,-1) {OST1};
+		\node[inner sep = 0mm, align = flush left] (ca) at (7,-2) {Ca\textsuperscript{2+}};
+		\node[inner sep = 0mm, align = flush left,color=\titlecolor] (sc) at (7,-3) {Stomatal Closure};
 
-	In the same way you can change the logo which is used on the title page and
-	in every header:
-	\begin{center}
-		\texttt{$\backslash$renewcommand\{$\backslash$headerlogo\}\{<path>\}}
-	\end{center}
+		\draw[->, dashed, color = ustcblack, line width = 1] (highCO2) to[bend right] (ABA);
+		\draw[->, color=ustcblack, , line width= 1] (highCO2) -- (CA);
+		\draw[->, color=ustcblack, , line width= 1] (CA) -- (HCO3);
+		\draw[->, color=ustcblack, line width= 1] (ABA) edge (1) (1) edge (2) (2) edge (3) (3) edge (OST1);
+		\draw[->, color=ustcblack, , line width= 1] (HCO3) to[bend left] (OST1);	
+		\draw[->, color=ustcblack, , line width= 1] (OST1) -- (ca);
+		\draw[->, color=ustcblack, , line width= 1] (ca) -- (sc);
+		\draw[-|, color=ustcblack, line width = 1] (HT1) -- (4);
+
+	\end{tikzpicture}
 \end{frame}
 
-
-
-\normalframetitle % from now on use the (default) normal frame title style
-\begin{frame}{This is a frame title written in the usual way. It can also
-be multiline.}
-	For slides with a normal size of the frame title, you can use \texttt{$\backslash$normalframetitle}
-	before \texttt{$\backslash$begin\{frame\}}. In this style, frame titles can
-	also be multiline.
-
-	This style is set by default.
-\end{frame}
-
-
-
-\smallframetitle % from now on use the small frame title style
-\begin{frame}{This is a frame title written in the small, single-line way.}
-	If you want to have a slide with a smaller title, use the command \texttt{$\backslash$smallframetitle} before \texttt{$\backslash$begin\{frame\}}. Note that in this
-	style, frame titles are always single-line. A smaller frame title is useful if more space is needed on the slide.
-
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-	incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-	nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-	incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-	nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipiscing
-	elit, sed do eiusmod tempor  incididunt ut labore et dolore magna aliqua.
-\end{frame}
-
-
-
-\normalframetitle
-\begin{frame}{Items}
-	If you use  \texttt{$\backslash$colitem\ldots} instead of
-	\texttt{$\backslash$item\ldots} while you create an item list, the item text
-	will be printed in the color theme of the presentation.
-
-	\vfill
-	\begin{columns}
-		\begin{column}{.45\linewidth}
-			Using \texttt{$\backslash$item \ldots}:
-			\begin{itemize}
-				\item Item 1
-					\begin{itemize}
-						\item Subitem 1
-						\item Subitem 2
-					\end{itemize}
-				\item Item 2
-				\item Item 3
-			\end{itemize}
-		\end{column}
-		\begin{column}{.45\linewidth}
-			Using \texttt{$\backslash$colitem \ldots } at the first level:
-			\begin{itemize}
-				\colitem Item 1
-					\begin{itemize}
-						\item Subitem 1
-						\item Subitem 2
-					\end{itemize}
-				\colitem{Item 2}
-				\colitem{Item 3}
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-
-
-% \begin{frame}{Additional ways to emphasize your text}
-% 	With the commands \texttt{$\backslash$colemph\{\ldots\}} and
-% 	\texttt{$\backslash$important\{\ldots\}} you can emphasize parts of your text
-% 	in the \colemph{color theme} oder in \important{ustcred}.
-% \end{frame}
-
-
-
-\begin{frame}{Mathematics}
-	Mathematical formulas can be used as usual \colemph{inline}, like for example
-	\(a^2+b^2 = c^2\) or in \colemph{display} mode:
-	\[\sum\limits_{k=0}^\infty q^k = \frac{1}{1-q}, \quad \forall q \in ]0,1[.\]
-\end{frame}
-
-
-
-
-
-\smallframetitle
-\begin{frame}{Picture and The End}
-	Of course, it is also possible to use images in the presentation.
+\begin{frame}{ABA Regulation of Stomatal}
+	Tardieu‒Davies model
+	$$g_{s} = g_{min} + (g_{max} − g_{min} )\exp( − [ABA]\beta \exp(\delta \Psi_{f}))$$
 
 	\vfill
 
 	\begin{columns}
-		\begin{column}{.5\linewidth}
+		\begin{column}{.4\linewidth}
 			\begin{figure}
-				\includegraphics[width=.7\linewidth]{logo/Background.JPG}
-				\caption{This is an imported image with a caption.}
-				\label{abb:image}
+				\includegraphics[width=.8\linewidth]{figure/figure1.png}
 			\end{figure}
 		\end{column}
-		\begin{column}{.5\linewidth}
-			\LARGE \centering
-			\colemph{Thank you} for your attention.
+		
+		\begin{column}{.6\linewidth}
+			\begin{figure}
+				\includegraphics[width=\linewidth]{figure/figure2.png}
+			\end{figure}
 		\end{column}
 	\end{columns}
 \end{frame}
-
 
 
 \end{document}
